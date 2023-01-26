@@ -40,6 +40,9 @@ add_executable(citra-qt
     configuration/configure.ui
     configuration/configuration_shared.cpp
     configuration/configuration_shared.h
+    configuration/configure_achievement.cpp
+    configuration/configure_achievement.h
+    configuration/configure_achievement.ui
     configuration/configure_audio.cpp
     configuration/configure_audio.h
     configuration/configure_audio.ui

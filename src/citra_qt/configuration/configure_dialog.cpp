@@ -54,6 +54,7 @@ void ConfigureDialog::SetConfiguration() {
     ui->webTab->SetConfiguration();
     ui->uiTab->SetConfiguration();
     ui->storageTab->SetConfiguration();
+    ui->achievementTab->SetConfiguration();
 }
 
 void ConfigureDialog::ApplyConfiguration() {
@@ -70,6 +71,7 @@ void ConfigureDialog::ApplyConfiguration() {
     ui->webTab->ApplyConfiguration();
     ui->uiTab->ApplyConfiguration();
     ui->storageTab->ApplyConfiguration();
+    ui->achievementTab->ApplyConfiguration();
     Settings::Apply();
     Settings::LogSettings();
 }
@@ -79,12 +81,13 @@ Q_DECLARE_METATYPE(QList<QWidget*>);
 void ConfigureDialog::PopulateSelectionList() {
     ui->selectorList->clear();
 
-    const std::array<std::pair<QString, QList<QWidget*>>, 5> items{
+    const std::array<std::pair<QString, QList<QWidget*>>, 6> items{
         {{tr("General"), {ui->generalTab, ui->webTab, ui->debugTab, ui->uiTab}},
          {tr("System"), {ui->systemTab, ui->cameraTab, ui->storageTab}},
          {tr("Graphics"), {ui->enhancementsTab, ui->graphicsTab}},
          {tr("Audio"), {ui->audioTab}},
-         {tr("Controls"), {ui->inputTab, ui->hotkeysTab}}}};
+         {tr("Controls"), {ui->inputTab, ui->hotkeysTab}},
+         {tr("Achievements"), {ui->achievementTab}}}};
 
     for (const auto& entry : items) {
         auto* const item = new QListWidgetItem(entry.first);
